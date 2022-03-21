@@ -29,7 +29,7 @@ fun main() {
 
     println(miFun())
     otraFun()
-    parametrosEnFunc("Buenas tardes", parametro2 = "Segundo Parametro")
+    parametrosEnFunc("Buenas tardes")
     var miArray = arrays()
 
     println(miArray[2])
@@ -56,6 +56,14 @@ fun main() {
         println(valor)
     }
 
+    parametrosEnFunc(parametro1="valor", "Kotlin", "Programa", ">:c")
+
+    val persona = Persona("John", "Johnson")
+    println(persona.nombre)
+    val persona2 = Persona()
+    persona2.nick = "Jaiden"
+    println(persona2.nick)
+    persona.printInfo()
 
 }
 
@@ -70,9 +78,11 @@ fun otraFun(): Unit{    //Unit es muy similar al void de java, igualmente no es 
 
 }
 
-fun parametrosEnFunc(parametro1:String, parametro2:String){
+fun parametrosEnFunc(parametro1:String = "parametro1", vararg parametro2:String){  //vararg toma al valor como un array
 
-    println("Primer parametro: $parametro1 , Segundo parametro: $parametro2")
+    parametro2.forEach { parametro ->
+        println("Primer parametro: $parametro1 , Segundo parametro: $parametro")
+    }
 }
 
 fun arrays(): Array<String>{
